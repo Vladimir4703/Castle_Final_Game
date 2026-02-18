@@ -341,11 +341,11 @@ class LevelSecond(arcade.View):
         self.physics_engine.update()
 
         player_and_money_collision = arcade.check_for_collision_with_list(self.player_sprite, self.money_list)
-        for gem in player_and_money_collision:
+        for money in player_and_money_collision:
             self.explosion_sound.play()
             self.camera_shake.start()
             self.money_eaten += 1
-            gem.remove_from_sprite_lists()
+            money.remove_from_sprite_lists()
 
         # Камера: мёртвая зона + плавное следование
         cam_x, cam_y = self.world_camera.position
